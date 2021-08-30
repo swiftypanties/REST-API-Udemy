@@ -26,6 +26,13 @@ class Item(Resource):
         items.append(item)
         return item, 201
 
+    def delete (self, name):
+        for item in items:
+            if item['name'] == name:
+                items.remove(item)
+                return {'message': "The'{}' is deleted".format(name)}
+        return {'message': "item named '{}' not found in the list".format(name)}
+
 class ItemList(Resource):
     def get(self):
         return{'items': items}
