@@ -22,7 +22,7 @@ class Item(Resource):
 
         if row:
             return{'item': {'name': row[0], 'price': row[1]}}
-        return{'message': 'Item not found'}, 404    
+        return{'message': 'Item not found'}, 404
 
 
     def post(self, name):
